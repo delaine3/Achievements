@@ -41,22 +41,12 @@ function Index ({ achievements }) {
  
   function newDay(achievement){
 
-    function styleObj (){
-      const newStyle={
-        textAlign: "center",
-        width: "90%",
-        fontSize: "25px",
-        marginLeft: "4%",
-        padding:"10px "
-       }
-      return newStyle
-  }
     return <div  key={achievement.insertDate }> 
     <div key={achievement._id}>
     <div  key={achievement._id} className="card">
       <img src={achievement.image_url} />
       <h5 className="achievement-name"> {achievement.name}</h5>
-      <h3 style={styleObj() }>{achievement.theDate.slice(18)}</h3>
+      <h3 >{achievement.theDate.slice(18)}</h3>
 
       <br/>
       <div className="main-content">
@@ -79,12 +69,7 @@ function Index ({ achievements }) {
     
   }
  
-function styleObj2 (){
-  const newStyle={
-    marginTop: "0%"
-   }
-  return newStyle
-}
+
   return(
   <div >
     <h1 className="title">It is {theDate()} <br/> What did you do with your life today?
