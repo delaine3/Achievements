@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  background-color: #90be6d;
+}
+
+.grid {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f9c74f;
+
+}
+form{
+background-color: #faedcd;
+padding: 1%;
+}
+
+/* Nav Area */
+.top-bar {
+  width: 100%;
+  margin-top: 0;
+  position: relative;
+  height: 80px;
+  text-align: right;
+}
+#title {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  display: block;
+  height: 100%;
+}
+.nav {
+    display: flex;
+  width: 100%;
+  display: inline-block;
+}
+.nav a {
+  margin: 0 20px;
+  font-size: 120%;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1%;
+}
+h1,h2{
+  background-color: #4d908e;
+  text-align: center;
+  padding: 10px;
+
+}
+
+a {
+  border-right: 1px solid #faedcd;
+  padding: 10px;
+  font-size: large;
+  text-decoration: none;
+  font: 1em sans-serif;
+  color: #277da1;
+  font-family: 'Ubuntu Mono', monospace;
+
+}
+a:hover {
+  color: #faedcd;
+  padding: 10px;
+}
+.view-card{
+  display: flexbox;
+  text-align: center;
+padding: 20px;
+  display: inline-block;
+  overflow: scroll-y;
+  border: 2px solid #faedcd;
+  border-radius: 16px;
+  margin: auto;
+  transition: 0.5s all;
+  box-shadow: 0 0 10px 5px var(--shadow);
+  font-size: 100%;
+}
+
+
+/* Styles for Cards */
+.card {
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  border: 2px solid #faedcd;
+  border-radius: 16px;
+  margin: 10px;
+  transition: 0.5s all;
+  box-shadow: 0 0 10px 5px var(--shadow);
+  position: relative;
+  font-size: 100%;
+}
+
+.card:hover {
+  --shadow: rgba(65, 62, 62, 0.548);
+  /* transform: rotateY(180deg) translate(20px, 20px);
+  background: pink; */
+}
+
+.card:hover .main-content {
+  pointer-events: initial;
+  opacity: 1;
+}
+
+.card * {
+  margin: 0;
+}
+
+
+.main-content {
+  padding: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f9844a;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s all;
+}
+
+.details {
+  color: #faedcd;
+  font-size: 110%;
+  background-color: #f9844a;
+}
+
+.achievement-name {
+  font-weight: bold;
+  font-size: 130%;
+  padding: 4%;
+  box-shadow: 0px 0px 20px #90be6d, inset 0px 0px 20px #90be6d;
+}
+
+label{
+  background-color: #faedcd;
+}
+
+h5.achievement-name {
+	background-color: transparent;	
+  color: rgb(0, 0, 0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 80px;
+  font-size: 30px;
+  text-shadow: 0px 0px 4px rgb(138, 136, 136);
+}
+
+.info ul {
+  padding: 10px;
+  padding-top: 0px;
+  border-radius: 7px;
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+
+}
+
+.info {
+  color: rgb(83, 83, 83);
+  position: relative;
+  overflow: hidden;
+}
+
+.label {
+  font-weight: bold;
+    background-color: #f9c74f;
+
+}
+p{
+  background-color: transparent;
+  
+  max-width:300px;
+  word-wrap:break-word;
+   
+}
+.btn-container {
+  text-align: right;
+  padding: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #f9844a;
+
+}
+
+.btn {
+  --accent: #4d908e;
+  cursor: pointer;
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 90%;
+  letter-spacing: 1px;
+  transition: 0.5s all;
+  outline: none;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #faedcd;
+}
+
+.edit.btn {
+  --accent: #43aa8b;
+  color: rgb(205, 255, 205);
+  border-width: 2px;
+}
+
+.delete.btn {
+  --accent: #f94144;
+  margin-left: 10px;
+  color: #ffd9d9;
+}
+
+.view.btn {
+  color: #cef0ff;
+  --accent: #277da1;
+  margin-left: 10px;
+}
+
+/* Delete Achievement */
+.achievement-container {
+  width: 100%;
+}
+
+.confirmation-box.show {
+  display: block;
+}
