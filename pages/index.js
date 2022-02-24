@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import dbConnect from '../lib/dbConnect'
 import Achievement from '../models/Achievement'
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export function theDate() {
   const date = new Date();
@@ -38,33 +38,9 @@ export function checkIfYesterday(achievementDate){
 }
 
 function Index ({ achievements }) {
-  const [previous, setPrevious] = useState("2018, 11, 24, 10, 33, 30, 0");
  
-function setPreviosDate(insertDate){
-  setPrevious(insertDate)
-
-}
   function newDay(achievement){
-      
-    const [currStyle, setCurrStyle] = useState({
-      backgroundColor: "#ee9b00",
-      textAlign: "center",
-      width: "90%",
-      fontSize: "25px",
-      marginLeft: "4%"});
-  
-    let parseCurrAchiementDate =  parseInt(achievement.insertDate)
-    let currAchievementDateAsDate = new Date(parseCurrAchiementDate)
-  
-    let parsePrevAchiementDate =  parseInt(previous)
-    let prevAchiementAsDate= new Date(parsePrevAchiementDate)
-  
-    function datesAreOnSameDay (first, second){
-      {()=>setPreviosDate(achievement.insertDate)}
-    return first.getFullYear() === second.getFullYear() &&
-    first.getMonth() === second.getMonth() &&
-    first.getDate() === second.getDate();
-    }
+
     function styleObj (){
       const newStyle={
         textAlign: "center",
@@ -75,10 +51,6 @@ function setPreviosDate(insertDate){
        }
       return newStyle
   }
-  console.log(currAchievementDateAsDate + " " + prevAchiementAsDate)
-  console.log(datesAreOnSameDay(currAchievementDateAsDate, prevAchiementAsDate))
-  
-    
     return <div  key={achievement.insertDate }> 
     <div key={achievement._id}>
     <div  key={achievement._id} className="card">
