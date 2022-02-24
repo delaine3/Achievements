@@ -39,14 +39,26 @@ export function checkIfYesterday(achievementDate){
 
 function Index ({ achievements }) {
  
-  function newDay(achievement){
 
+  function newDay(achievement){
+    function styleObj (){
+      var color = Array("#e9d8a6", "#ee9b00", "#94d2bd", "#0a9396", "#ca6702", "#9b2226");
+      const newStyle={
+        backgroundColor: color[Math.floor(Math.random() * color.length)],
+        textAlign: "center",
+        width: "90%",
+        fontSize: "25px",
+        marginLeft: "4%",
+        padding:"10px "
+       }
+      return newStyle
+  }
     return <div  key={achievement.insertDate }> 
     <div key={achievement._id}>
     <div  key={achievement._id} className="card">
       <img src={achievement.image_url} />
       <h5 className="achievement-name"> {achievement.name}</h5>
-      <h3 >{achievement.theDate.slice(18)}</h3>
+      <h3 style={styleObj() }>{achievement.theDate.slice(18)}</h3>
 
       <br/>
       <div className="main-content">
@@ -69,7 +81,6 @@ function Index ({ achievements }) {
     
   }
  
-
   return(
   <div >
     <h1 className="title">It is {theDate()} <br/> What did you do with your life today?
