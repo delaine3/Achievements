@@ -63,6 +63,7 @@ h1,h2{
 }
 
 a {
+  font-size: 30px;
   border-right: 1px solid #faedcd;
   padding: 10px;
   font-size: large;
@@ -247,4 +248,8 @@ p{
 
 .confirmation-box.show {
   display: block;
+}
+a{
+  font-size: 30px;
+
 }

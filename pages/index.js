@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import dbConnect from '../lib/dbConnect'
 import Achievement from '../models/Achievement'
-import React from "react";
+import React, { useState } from "react";
 
 export function theDate() {
   const date = new Date();
@@ -39,6 +39,7 @@ export function checkIfYesterday(achievementDate){
 
 function Index ({ achievements }) {
  
+  const [ dateList, setDateList ] = useState([]);
 
   function newDay(achievement){
     function styleObj (){
@@ -53,12 +54,46 @@ function Index ({ achievements }) {
        }
       return newStyle
   }
+   let myRegex=   /(.*?),/
+   let dateStr = achievement.theDate
+   let formatted_date = dateStr.replace(myRegex,"")
+
+   if(dateList.indexOf(formatted_date)){
     return <div  key={achievement.insertDate }> 
     <div key={achievement._id}>
     <div  key={achievement._id} className="card">
       <img src={achievement.image_url} />
       <h5 className="achievement-name"> {achievement.name}</h5>
-      <h3 style={styleObj() }>{achievement.theDate.slice(18)}</h3>
+      <h3 style={styleObj() }>{formatted_date}</h3>
+<div>hello</div>
+      <br/>
+      <div className="main-content">
+        <p className="achievement-name">{achievement.name}</p>
+        <br/>
+        <p className="details">Details: {achievement.achievement_details.split(" ").splice(0,10).join(" ")}</p>
+        <br/>
+        <p className="details">Date: {achievement.theDate}</p>
+        <div className="btn-container">
+          <Link href="/[id]/sedit" as={`/${achievement._id}/edit`}>
+            <button className="btn edit">Edit</button>
+          </Link>
+          <Link href="/[id]" as={`/${achievement._id}`}>
+            <button className="btn view">View</button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div> </div>
+   }else{
+    setDateList((oldArray) => [...oldArray, formatted_date])
+
+    return <div  key={achievement.insertDate }> 
+    <div key={achievement._id}>
+    <div  key={achievement._id} className="card">
+      <img src={achievement.image_url} />
+      <h5 className="achievement-name"> {achievement.name}</h5>
+      <h3 >{formatted_date}</h3>
+      <div>Bye</div>
 
       <br/>
       <div className="main-content">
@@ -78,6 +113,9 @@ function Index ({ achievements }) {
       </div>
     </div>
   </div> </div>
+   }
+
+  
     
   }
  
