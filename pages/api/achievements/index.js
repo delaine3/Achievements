@@ -1,32 +1,34 @@
-import dbConnect from '../../../lib/dbConnect'
-import Achievement from '../../../models/Achievement'
+import dbConnect from "../../../lib/dbConnect";
+import Achievement from "../../../models/Achievement";
 
 export default async function handler(req, res) {
-  const { method } = req
+  const { method } = req;
 
-  await dbConnect()
+  await dbConnect();
 
   switch (method) {
-    case 'GET':
+    case "GET":
       try {
-        const achievements = await Achievement.find({}) /* find all the data in our database */
-        res.status(200).json({ success: true, data: achievements })
+        const achievements = await Achievement.find(
+          {}
+        ); /* find all the data in our database */
+        res.status(200).json({ success: true, data: achievements });
       } catch (error) {
-        res.status(400).json({ success: false })
+        res.status(400).json({ success: false });
       }
-      break
-    case 'POST':
+      break;
+    case "POST":
       try {
         const achievement = await Achievement.create(
           req.body
-        ) /* create a new model in the database */
-        res.status(201).json({ success: true, data: achievement })
+        ); /* create a new model in the database */
+        res.status(201).json({ success: true, data: achievement });
       } catch (error) {
-        res.status(400).json({ success: false })
+        res.status(400).json({ success: false });
       }
-      break
+      break;
     default:
-      res.status(400).json({ success: false })
-      break
+      res.status(400).json({ success: false });
+      break;
   }
 }
