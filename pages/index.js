@@ -78,7 +78,6 @@ function Index({ achievements }) {
               <img src={achievement.image_url} />
               <h5 className="achievement-name"> {achievement.name}</h5>
               <h3 style={styleObj()}>{formatted_date}</h3>
-              <div>hello</div>
               <br />
               <div className="main-content">
                 <p className="achievement-name">{achievement.name}</p>
